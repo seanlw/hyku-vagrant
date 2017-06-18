@@ -32,7 +32,7 @@ You will need to create a new domain in your hosts file before creating a new re
 3. Visit [http://localhost:8080](http://localhost:8080) and log in as super admin
 3. Enter `example` for the "Short name"
 
-## Stoping vagrant
+## Stopping vagrant
 
 To stop vagrant run `vagrant halt`. To remove hyku vagrant and the virtual machine run `vagrant destroy`.
 
