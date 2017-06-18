@@ -1,4 +1,4 @@
-# Hyku
+# Hyku Vagrant Box
 [Hyku beta.x](https://github.com/samvera-labs/hyku) vagrant box.
 
 ## Requirements
@@ -30,7 +30,8 @@ You will need to create a new domain in your hosts file before creating a new re
 1. Modify `/etc/hosts` on your host machine
 2. Add `127.0.0.1 example.localhost` where `example` will be the short name to the repository
 3. Visit [http://localhost:8080](http://localhost:8080) and log in as super admin
-3. Enter `example` for the "Short name"
+4. Click "Get Started"
+5. Enter `example` for the "Short name"
 
 ## Stopping vagrant
 
