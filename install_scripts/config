@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Contain Environment variables for installs
+#
+
+HOME_DIR="/home/ubuntu"
+
+SHARED_DIR="/vagrant"
+
+DOWNLOAD_DIR="$SHARED_DIR/downloads"
+if [ ! -d $DOWNLOAD_DIR ]; then
+  mkdir $DOWNLOAD_DIR
+fi

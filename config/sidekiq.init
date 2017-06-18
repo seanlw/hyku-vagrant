@@ -1,0 +1,32 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          sidekiq
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Sidekiq
+### END INIT INFO
+
+RAILS_ROOT="/var/www/hyku"
+USER="ubuntu"
+
+case "$1" in
+  start)
+  echo -n "Starting Sidekiq: "
+  su - $USER -c "cd $RAILS_ROOT && DISABLE_REDIS_CLUSTER=true bundle exec sidekiq &" >> $RAILS_ROOT/log/sidekiq.log 2>&1
+  echo "done."
+  ;;
+  stop)
+  echo -n "Stopping Sidekiq: "
+  ps -ef | grep "sidekiq" | head -n1 | awk '{ print $2 }' | xargs kill >> $RAILS_ROOT/log/sidekiq.log 2>&1
+  echo "done."
+  ;;
+  *)
+  echo "Usage: $N {start|stop}" >&2
+  exit 1
+  ;;
+esac
+
+exit 0

@@ -1,0 +1,7 @@
+ZK_HOST="127.0.0.1:2181"
+ZK_CLIENT_TIMEOUT="15000"
+SOLR_PID_DIR="/var/solr"
+SOLR_HOME="/var/solr/data"
+LOG4J_PROPS="/var/solr/log4j.properties"
+SOLR_LOGS_DIR="/var/solr/logs"
+SOLR_PORT="8983"
