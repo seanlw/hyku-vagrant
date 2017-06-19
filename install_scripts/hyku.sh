@@ -35,12 +35,23 @@ rm -Rf $HOME_DIR/hyku
 
 sudo -u postgres psql -c "CREATE USER ubuntu WITH PASSWORD 'ubuntu' CREATEDB;"
 
+export RDS_DB_NAME=hyku
+export RDS_USERNAME=ubuntu
+export RDS_PASSWORD=ubuntu
+export DATABASE_URL=postgresql://ubuntu:ubuntu@localhost/hyku
+export FEDORA_URL=http://localhost:8984/fedora4/rest
+export SOLR_URL=http://localhost:8983/solr/hyku
+export SETTINGS__ACTIVE_JOB__QUEUE_ADAPTER=sidekiq
+export SETTINGS__SOLR__URL=http://localhost:8983/solr/
+export SETTINGS__ZOOKEEPER__CONNECTION_STR=localhost:2181/configs
+export SETTINGS__FITS_PATH=/opt/fits/fits.sh
+export RAILS_CACHE_STORE_URL=memcache
+export SECRET_KEY_BASE=jfiea90832fj90qnv
+export RAILS_ENV=production
+
 cd /var/www/hyku
 gem install bundler -q
 bundle install
-
-source /etc/environment
-sudo - source /etc/environment
 
 bundle exec rake assets:precompile
 bundle exec rake db:setup
@@ -51,5 +62,6 @@ sudo cp $SHARED_DIR/config/sidekiq.init /etc/init.d/sidekiq
 sudo chmod 755 /etc/init.d/sidekiq
 sudo update-rc.d sidekiq defaults
 sudo update-rc.d sidekiq enable
-sudo /etc/init.d/sidekiq start
+
+sudo reboot
 echo "Done"

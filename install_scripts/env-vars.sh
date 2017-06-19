@@ -21,6 +21,5 @@ RAILS_ENV=production
 EOT
 
 source /etc/environment
-su - ubuntu -c "source /etc/environment"
 
 echo "Done"
