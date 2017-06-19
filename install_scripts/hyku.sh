@@ -35,6 +35,10 @@ rm -Rf $HOME_DIR/hyku
 
 sudo -u postgres psql -c "CREATE USER ubuntu WITH PASSWORD 'ubuntu' CREATEDB;"
 
+##
+#  Need to export environment variables since /etc/environment doesn't kick in
+#  at this point in provisioning. This is only needed for vagrant installs.
+##
 export RDS_DB_NAME=hyku
 export RDS_USERNAME=ubuntu
 export RDS_PASSWORD=ubuntu
@@ -62,6 +66,3 @@ sudo cp $SHARED_DIR/config/sidekiq.init /etc/init.d/sidekiq
 sudo chmod 755 /etc/init.d/sidekiq
 sudo update-rc.d sidekiq defaults
 sudo update-rc.d sidekiq enable
-
-sudo reboot
-echo "Done"
