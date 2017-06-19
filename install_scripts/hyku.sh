@@ -39,6 +39,9 @@ cd /var/www/hyku
 gem install bundler -q
 bundle install
 
+source /etc/environment
+sudo - source /etc/environment
+
 bundle exec rake assets:precompile
 bundle exec rake db:setup
 
