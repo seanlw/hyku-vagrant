@@ -11,8 +11,8 @@ if [ -f "$SHARED_DIR/install_scripts/config" ]; then
 fi
 
 cp -f $SHARED_DIR/config/env-vars.conf /etc/default/hyku
-cat $SHARED_DIR/config/env-vars.conf >> /etc/apache2/envvars
 
+echo ". /etc/default/hyku" >> /etc/apache2/envvars
 echo "source /etc/default/hyku" >> $HOME_DIR/.profile
 
 echo "Done"
