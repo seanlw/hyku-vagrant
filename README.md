@@ -22,6 +22,7 @@
 5. `vagrant ssh`
 6. `cd /var/www/hyku`
 7. `bundle exec rake superadmin:grant[user@email.org]` where `user@email.org` is the email you registered
+8. `exit`
 
 ## Multi tenant domains
 

@@ -25,8 +25,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.provision "shell", path: "./install_scripts/env-vars.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/fedora4.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/solr.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/ruby.sh", privileged: false, args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/passenger.sh", privileged: false, args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/fits.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/hyku.sh", privileged: false, args: shared_dir
-	config.vm.provision "shell", inline: "echo \"Rebooting. This could take awhile\" && reboot"
 
 end

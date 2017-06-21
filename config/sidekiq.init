@@ -12,6 +12,8 @@
 RAILS_ROOT="/var/www/hyku"
 USER="ubuntu"
 
+[ -f /etc/default/hyku ] && . /etc/default/hyku
+
 case "$1" in
   start)
   echo -n "Starting Sidekiq: "
